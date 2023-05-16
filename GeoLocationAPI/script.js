@@ -5,7 +5,7 @@ navigator.geolocation.getCurrentPosition(
         const longitude = position.coords.longitude
         console.log("https://www.google.com/maps/@${latitude},${longitude},14z")
 
-        const coords = [latitude, longitude]
+        coords = [latitude, longitude]
 
         var map = L.map('map').setView(coords, 13);
 
