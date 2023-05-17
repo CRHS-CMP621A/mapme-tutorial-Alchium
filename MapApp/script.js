@@ -16,7 +16,7 @@ navigator.geolocation.getCurrentPosition(
         // console.log(position);
         const latitude = position.coords.latitude
         const longitude = position.coords.longitude
-        console.log("https://www.google.com/maps/@${latitude},${longitude},14z")
+        console.log(`https://www.google.com/maps/@${latitude},${longitude},14z`)
 
         const coords = [latitude, longitude]
 
@@ -30,9 +30,9 @@ navigator.geolocation.getCurrentPosition(
             .bindPopup('A pretty CSS popup.<br> Easily customizable.')
             .openPopup();
 
-        map.on('click'), function(mapEvent) {
+        map.on('click', function(mapEvent) {
             console.log(mapEvent)
-        }
+        })
     },
     function () {
         alert("Could not get position.");
