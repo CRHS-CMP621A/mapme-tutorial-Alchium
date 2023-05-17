@@ -44,6 +44,9 @@ navigator.geolocation.getCurrentPosition(
                 }))
                 .setPopupContent('Workout')
                 .openPopup();
+                form.classList.remove('hidden');
+                inputDistance.focus();
+
 
 
 
