@@ -37,15 +37,11 @@ navigator.geolocation.getCurrentPosition(
             mapEvent=mapE;
             const lat= mapEvent.latlng.lat
             const lng= mapEvent.latlng.lng
-            console.log(mapEvent)
-            
-                form.classList.remove('hidden');
-                inputDistance.focus();
-
-
-
-
-
+            console.log(mapEvent)           
+            form.classList.remove('hidden');
+            inputDistance.focus();
+            .setPopupContent('Workout')
+            .openPopup();
         })
     },
     function () {
@@ -62,8 +58,7 @@ form.addEventListener('submit', function(){
                     closeOnClick:false,
                     className:'running-popup',
                 }))
-                .setPopupContent('Workout')
-                .openPopup();
+                
 })
 form.addEventListener('submit', function(e){
     e.preventDefault()
