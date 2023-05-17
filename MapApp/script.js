@@ -11,6 +11,9 @@ const inputDuration = document.querySelector('.form__input--duration');
 const inputCadence = document.querySelector('.form__input--cadence');
 const inputElevation = document.querySelector('.form__input--elevation');
 
+let map;
+let mapEvent;
+
 navigator.geolocation.getCurrentPosition(
     function (position) {
         // console.log(position);
@@ -20,7 +23,7 @@ navigator.geolocation.getCurrentPosition(
 
         const coords = [latitude, longitude]
 
-        var map = L.map('map').setView(coords, 13);
+        map = L.map('map').setView(coords, 13);
 
         L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -30,20 +33,12 @@ navigator.geolocation.getCurrentPosition(
             .bindPopup('A pretty CSS popup.<br> Easily customizable.')
             .openPopup();
 
-        map.on('click', function(mapEvent) {
+        map.on('click', function(mapE) {
+            mapEvent=mapE;
             const lat= mapEvent.latlng.lat
             const lng= mapEvent.latlng.lng
             console.log(mapEvent)
-            L.marker([lat, lng]).addTo(map)
-                .bindPopup(L.popup({
-                    maxWidth:250,
-                    minWidth:100,
-                    autoClose:false,
-                    closeOnClick:false,
-                    className:'running-popup',
-                }))
-                .setPopupContent('Workout')
-                .openPopup();
+            
                 form.classList.remove('hidden');
                 inputDistance.focus();
 
@@ -57,3 +52,18 @@ navigator.geolocation.getCurrentPosition(
         alert("Could not get position.");
     }
 )
+
+form.addEventListener('submit', function(e){
+    L.marker([lat, lng]).addTo(map)
+                .bindPopup(L.popup({
+                    maxWidth:250,
+                    minWidth:100,
+                    autoClose:false,
+                    closeOnClick:false,
+                    className:'running-popup',
+                }))
+                .setPopupContent('Workout')
+                .openPopup();
+                e.preventDefault()
+
+})
