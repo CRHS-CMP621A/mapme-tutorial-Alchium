@@ -30,6 +30,9 @@ navigator.geolocation.getCurrentPosition(
             .bindPopup('A pretty CSS popup.<br> Easily customizable.')
             .openPopup();
 
+        map.on('click'), function(mapEvent) {
+            console.log(mapEvent)
+        }
     },
     function () {
         alert("Could not get position.");
