@@ -40,8 +40,6 @@ navigator.geolocation.getCurrentPosition(
             console.log(mapEvent)           
             form.classList.remove('hidden');
             inputDistance.focus();
-            .setPopupContent('Workout')
-            .openPopup();
         })
     },
     function () {
@@ -58,7 +56,8 @@ form.addEventListener('submit', function(){
                     closeOnClick:false,
                     className:'running-popup',
                 }))
-                
+                .setPopupContent('Workout')
+                .openPopup();
 })
 form.addEventListener('submit', function(e){
     e.preventDefault()
