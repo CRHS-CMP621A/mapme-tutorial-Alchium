@@ -64,7 +64,8 @@ form.addEventListener('submit', function () {
     .openPopup();
 
      //change .form__input value back to placeholders
-    document.querySelector(`.form__input`) = document.querySelector(`.form__input`).placeholder
+     let inputDuration = ``
+    
 
 })
 form.addEventListener('submit', function(e){
