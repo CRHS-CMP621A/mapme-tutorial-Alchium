@@ -50,7 +50,7 @@ navigator.geolocation.getCurrentPosition(
 form.addEventListener('submit', function () {
     const lat= mapEvent.latlng.lat
     const lng= mapEvent.latlng.lng
-    
+
     L.marker([lat, lng]).addTo(map)
                     .bindPopup(L.popup({
                         maxWidth:250,
@@ -61,6 +61,9 @@ form.addEventListener('submit', function () {
                     }))
                     .setPopupContent('Workout')
                     .openPopup();
+
+                    //change .form__input value back to placeholders
+                    document.querySelector(`.form__input`) = ""
 
 })
 form.addEventListener('submit', function(e){
