@@ -59,11 +59,12 @@ form.addEventListener('submit', function () {
                         closeOnClick:false,
                         className:'running-popup',
                     }))
-                    .setPopupContent('Workout')
-                    .openPopup();
 
-                    //change .form__input value back to placeholders
-                    document.querySelector(`.form__input`).value = ``
+    .setPopupContent('Workout')
+    .openPopup();
+
+     //change .form__input value back to placeholders
+    document.querySelector(`.form__input`).textContent = ``
 
 })
 form.addEventListener('submit', function(e){
