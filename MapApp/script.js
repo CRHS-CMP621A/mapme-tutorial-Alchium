@@ -49,15 +49,16 @@ navigator.geolocation.getCurrentPosition(
 
 form.addEventListener('submit', function(){
     L.marker([lat, lng]).addTo(map)
-                .bindPopup(L.popup({
-                    maxWidth:250,
-                    minWidth:100,
-                    autoClose:false,
-                    closeOnClick:false,
-                    className:'running-popup',
-                }))
-                .setPopupContent('Workout')
-                .openPopup();
+                    .bindPopup(L.popup({
+                        maxWidth:250,
+                        minWidth:100,
+                        autoClose:false,
+                        closeOnClick:false,
+                        className:'running-popup',
+                    }))
+                    .setPopupContent('Workout')
+                    .openPopup();
+
 })
 form.addEventListener('submit', function(e){
     e.preventDefault()
