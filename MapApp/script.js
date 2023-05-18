@@ -14,6 +14,9 @@ const inputElevation = document.querySelector('.form__input--elevation');
 let map;
 let mapEvent;
 
+const lat= mapEvent.latlng.lat
+const lng= mapEvent.latlng.lng
+
 navigator.geolocation.getCurrentPosition(
     function (position) {
         // console.log(position);
@@ -35,8 +38,6 @@ navigator.geolocation.getCurrentPosition(
 
         map.on('click', function(mapE) {
             mapEvent=mapE;
-            const lat= mapEvent.latlng.lat
-            const lng= mapEvent.latlng.lng
             console.log(mapEvent)           
             form.classList.remove('hidden');
             inputDistance.focus();
@@ -47,7 +48,7 @@ navigator.geolocation.getCurrentPosition(
     }
 )
 
-form.addEventListener('submit', function(){
+form.addEventListener('submit', function () {
     L.marker([lat, lng]).addTo(map)
                     .bindPopup(L.popup({
                         maxWidth:250,
