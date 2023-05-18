@@ -47,7 +47,7 @@ navigator.geolocation.getCurrentPosition(
     }
 )
 
-form.addEventListener('submit', function (e) {
+form.addEventListener('submit', function () {
     const lat= mapEvent.latlng.lat
     const lng= mapEvent.latlng.lng
 
@@ -62,11 +62,10 @@ form.addEventListener('submit', function (e) {
                     .setPopupContent('Workout')
                     .openPopup();
 
-                    e.preventDefault
                     //change .form__input value back to placeholders
-                    document.querySelector(`.form__input`) = ""
+                    document.querySelector(`.form__input`).value = ``
 
 })
-// form.addEventListener('submit', function(e){
-//     e.preventDefault()
-// })
+form.addEventListener('submit', function(e){
+    e.preventDefault()
+})
