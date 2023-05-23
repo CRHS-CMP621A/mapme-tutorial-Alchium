@@ -50,8 +50,8 @@ navigator.geolocation.getCurrentPosition(
 form.addEventListener('submit', function (e) {
     e.preventDefault()
 
-    const lat= mapEvent.latlng.lat
-    const lng= mapEvent.latlng.lng
+    // const lat= mapEvent.latlng.lat
+    // const lng= mapEvent.latlng.lng
 
     L.marker([lat, lng]).addTo(map)
                     .bindPopup(L.popup({
