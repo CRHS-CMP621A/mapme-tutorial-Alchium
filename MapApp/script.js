@@ -83,8 +83,28 @@ navigator.geolocation.getCurrentPosition(
 form.addEventListener('submit', function (e) {
     e.preventDefault()
 
+    const type = inputType.ariaValueMax;
+    const distance = Number(inputDistance.value);
+    const duration = Number(inputDuration.value);
     const lat= mapEvent.latlng.lat
     const lng= mapEvent.latlng.lng
+    let workout;
+
+    if (type == 'running') {
+        const cadence = Number(inputCadence.value);
+
+
+        workout= new Running([lat,lng],distance,duration,cadence)
+    }
+
+    if (type == 'cycling') {
+        const elevation = +inputElevation.value;
+
+
+        workout= new Cycling([lat,lng],distance,duration,elevation)
+    }
+
+    workouts.push(workout)
 
     L.marker([lat, lng]).addTo(map)
                     .bindPopup(L.popup({
