@@ -61,9 +61,9 @@ form.addEventListener('submit', function (e) {
                         closeOnClick:false,
                         className:'running-popup',
                     }))
+                    .setPopupContent('Workout')
+                    .openPopup();
 
-    .setPopupContent('Workout')
-    .openPopup();
     document.getElementById("form").reset();
 
 
