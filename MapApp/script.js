@@ -29,9 +29,9 @@ navigator.geolocation.getCurrentPosition(
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         }).addTo(map);
 
-        L.marker(coords).addTo(map)
-            .bindPopup('A pretty CSS popup.<br> Easily customizable.')
-            .openPopup();
+        // L.marker(coords).addTo(map)
+        //     .bindPopup('A pretty CSS popup.<br> Easily customizable.')
+        //     .openPopup();
 
         map.on('click', function(mapE) {
             mapEvent=mapE;
@@ -47,7 +47,9 @@ navigator.geolocation.getCurrentPosition(
     }
 )
 
-form.addEventListener('submit', function () {
+form.addEventListener('submit', function (e) {
+    e.preventDefault()
+
     const lat= mapEvent.latlng.lat
     const lng= mapEvent.latlng.lng
 
@@ -62,12 +64,8 @@ form.addEventListener('submit', function () {
 
     .setPopupContent('Workout')
     .openPopup();
+    document.getElementById("form").reset();
 
-     //change .form__input value back to placeholders
-     let inputDuration = ``
-    
 
-})
-form.addEventListener('submit', function(e){
-    e.preventDefault()
+
 })
