@@ -13,6 +13,7 @@ const inputElevation = document.querySelector('.form__input--elevation');
 
 let map;
 let mapEvent;
+let workouts = []
 
 //CLASSES
 class Workout {
