@@ -51,9 +51,22 @@ class Running extends Workout {
 
 //CHILD CLASSES : CYCLING
 class Cycling extends Workout {
+    type = "Cycling";
+
     constructor (coords, distance, duration, elevationGain) {
         super(coords, distance, duration);
         this.elevation = elevationGain;
+        this.calcSpeed();
+        this.setDescription()
+    }
+
+    calcSpeed() {
+        // (km/h)
+        this.speed = this.duration / this.distance;
+    }
+
+    setDescription() {
+        this.description = `${this.type} on ${this.date.toDateString()}`;
     }
 }
 
@@ -166,7 +179,8 @@ if (type === "running") {
 </li>`;
 }
 
-html +- `<li class="workout workout--cycling" data-id="1234567891">
+if (type === "cycling") {
+    html = `<li class="workout workout--cycling" data-id="1234567891">
 <h2 class="workout__title">Cycling on April 5</h2>
 <div class="workout__details">
   <span class="workout__icon">🚴‍♀️</span>
@@ -189,6 +203,7 @@ html +- `<li class="workout workout--cycling" data-id="1234567891">
   <span class="workout__unit">m</span>
 </div>
 </li>`;
+}
 
 form.insertAdjacentHTML("afterend",html);
 
