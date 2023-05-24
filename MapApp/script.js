@@ -138,29 +138,33 @@ form.addEventListener('submit', function (e) {
 document.getElementById("form").reset();
 
 
-let html = `<!-- <li class="workout workout--running" data-id="1234567890">
-<h2 class="workout__title">Running on April 14</h2>
+let html;
+
+if (type === "running") {
+    html = `<!-- <li class="workout workout--running" data-id=${workout.id}>
+<h2 class="workout__title">${workout.description}</h2>
 <div class="workout__details">
   <span class="workout__icon">🏃‍♂️</span>
-  <span class="workout__value">5.2</span>
+  <span class="workout__value">${workout.distance}</span>
   <span class="workout__unit">km</span>
 </div>
 <div class="workout__details">
   <span class="workout__icon">⏱</span>
-  <span class="workout__value">24</span>
+  <span class="workout__value">${workout.duration}</span>
   <span class="workout__unit">min</span>
 </div>
 <div class="workout__details">
   <span class="workout__icon">⚡️</span>
-  <span class="workout__value">4.6</span>
+  <span class="workout__value">${workout.pace}</span>
   <span class="workout__unit">min/km</span>
 </div>
 <div class="workout__details">
   <span class="workout__icon">🦶🏼</span>
-  <span class="workout__value">178</span>
+  <span class="workout__value">${workout.cadence}</span>
   <span class="workout__unit">spm</span>
 </div>
 </li>`;
+}
 
 html +- `<li class="workout workout--cycling" data-id="1234567891">
 <h2 class="workout__title">Cycling on April 5</h2>
