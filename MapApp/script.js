@@ -29,9 +29,23 @@ class Workout {
 
 //CHILD CLASSES : RUNNING
 class Running extends Workout {
+    type = "Running";
+
     constructor (coords, distance, duration, cadence) {
         super(coords, distance, duration);
         this.cadence = cadence;
+        this.calcPace();
+        this.setDescription();
+    }
+
+    calcPace() {
+        // (min/km)
+        this.pace = this.duration / this.distance;
+        return this.pace;
+    }
+
+    setDescription() {
+        this.description = `${this.type} on ${this.date.toDateString()}`;
     }
 }
 
