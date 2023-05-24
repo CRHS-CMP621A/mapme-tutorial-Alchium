@@ -108,6 +108,7 @@ form.addEventListener('submit', function (e) {
     workouts.push(workout)
     console.log(workouts)
 
+    
     L.marker([lat, lng]).addTo(map)
                     .bindPopup(L.popup({
                         maxWidth:250,
