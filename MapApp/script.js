@@ -180,26 +180,26 @@ if (type === "running") {
 }
 
 if (type === "cycling") {
-    html = `<li class="workout workout--cycling" data-id="1234567891">
-<h2 class="workout__title">Cycling on April 5</h2>
+    html = `<li class="workout workout--cycling" data-id=${workout.id}>
+<h2 class="workout__title">${workout.description}</h2>
 <div class="workout__details">
   <span class="workout__icon">🚴‍♀️</span>
-  <span class="workout__value">27</span>
+  <span class="workout__value">${workout.distance}</span>
   <span class="workout__unit">km</span>
 </div>
 <div class="workout__details">
   <span class="workout__icon">⏱</span>
-  <span class="workout__value">95</span>
+  <span class="workout__value">${workout.duration}</span>
   <span class="workout__unit">min</span>
 </div>
 <div class="workout__details">
   <span class="workout__icon">⚡️</span>
-  <span class="workout__value">16</span>
+  <span class="workout__value">${workout.speed}</span>
   <span class="workout__unit">km/h</span>
 </div>
 <div class="workout__details">
   <span class="workout__icon">⛰</span>
-  <span class="workout__value">223</span>
+  <span class="workout__value">${workout.elevation}</span>
   <span class="workout__unit">m</span>
 </div>
 </li>`;
