@@ -141,7 +141,7 @@ form.addEventListener('submit', function (e) {
 let html;
 
 if (type === "running") {
-    html = `<!-- <li class="workout workout--running" data-id=${workout.id}>
+    html = `<li class="workout workout--running" data-id=${workout.id}>
 <h2 class="workout__title">${workout.description}</h2>
 <div class="workout__details">
   <span class="workout__icon">🏃‍♂️</span>
@@ -188,7 +188,7 @@ html +- `<li class="workout workout--cycling" data-id="1234567891">
   <span class="workout__value">223</span>
   <span class="workout__unit">m</span>
 </div>
-</li> -->`;
+</li>`;
 
 form.insertAdjacentHTML("afterend",html);
 
