@@ -120,7 +120,7 @@ form.addEventListener('submit', function (e) {
                     .setPopupContent('Workout')
                     .openPopup();
 
-    document.getElementById("form").reset();
+
 
 let html = `<!-- <li class="workout workout--running" data-id="1234567890">
 <h2 class="workout__title">Running on April 14</h2>
@@ -170,8 +170,9 @@ html +- `<li class="workout workout--cycling" data-id="1234567891">
 </div>
 </li> -->`;
 
-form.insertAdjacentHTML('afterend',html);
+form.insertAdjacentHTML("afterend",html);
 
+document.getElementById("form").reset();
 
 })
 
