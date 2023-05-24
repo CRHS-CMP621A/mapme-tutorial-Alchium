@@ -135,7 +135,7 @@ form.addEventListener('submit', function (e) {
                     .setPopupContent('Workout')
                     .openPopup();
 
-document.getElementById("form").reset();
+
 
 
 let html;
@@ -193,7 +193,7 @@ html +- `<li class="workout workout--cycling" data-id="1234567891">
 form.insertAdjacentHTML("afterend",html);
 
 
-
+document.getElementById("form").reset();
 })
 
 //Event Listener Toggle form input type change. 
