@@ -144,20 +144,6 @@ form.addEventListener('submit', function (e) {
 
     localStorage.setItem("workouts", JSON.stringify(workouts));
 
-    L.marker([lat, lng]).addTo(map)
-                    .bindPopup(L.popup({
-                        maxWidth:250,
-                        minWidth:100,
-                        autoClose:false,
-                        closeOnClick:false,
-                        className:'running-popup',
-                    }))
-                    .setPopupContent('Workout')
-                    .openPopup();
-
-
-
-
 let html;
 for (let workout of workouts) {
     let lat = workout.coords[0];
