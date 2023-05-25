@@ -95,8 +95,55 @@ navigator.geolocation.getCurrentPosition(
         if (data) {
             workouts = data;
             console.log(data);
+        }
 
-            
+        // L.marker(coords).addTo(map)
+        //     .bindPopup('A pretty CSS popup.<br> Easily customizable.')
+        //     .openPopup();
+
+        map.on('click', function(mapE) {
+            mapEvent=mapE;
+            const lat= mapEvent.latlng.lat
+            const lng= mapEvent.latlng.lng
+            console.log(mapEvent)           
+            form.classList.remove('hidden');
+            inputDistance.focus();
+        })
+    },
+    function () {
+        alert("Could not get position.");
+    }
+)
+
+form.addEventListener('submit', function (e) {
+    e.preventDefault()
+
+    const type = inputType.value;
+    const distance = Number(inputDistance.value);
+    const duration = Number(inputDuration.value);
+    const lat= mapEvent.latlng.lat
+    const lng= mapEvent.latlng.lng
+    let workout;
+
+    if (type == 'running') {
+        const cadence = Number(inputCadence.value);
+
+
+        workout= new Running([lat,lng],distance,duration,cadence)
+    }
+
+    if (type == 'cycling') {
+        const elevation = +inputElevation.value;
+
+
+        workout= new Cycling([lat,lng],distance,duration,elevation)
+    }
+
+    workouts.push(workout)
+    console.log(workouts)
+
+    localStorage.setItem("workouts", JSON.stringify(workouts));
+
 let html;
 for (let workout of workouts) {
     let lat = workout.coords[0];
@@ -183,55 +230,6 @@ L.marker([lat, lng])
 console.log(html);
 form.insertAdjacentHTML("afterend",html);
 }
-
-        }
-
-        // L.marker(coords).addTo(map)
-        //     .bindPopup('A pretty CSS popup.<br> Easily customizable.')
-        //     .openPopup();
-
-        map.on('click', function(mapE) {
-            mapEvent=mapE;
-            const lat= mapEvent.latlng.lat
-            const lng= mapEvent.latlng.lng
-            console.log(mapEvent)           
-            form.classList.remove('hidden');
-            inputDistance.focus();
-        })
-    },
-    function () {
-        alert("Could not get position.");
-    }
-)
-
-form.addEventListener('submit', function (e) {
-    e.preventDefault()
-
-    const type = inputType.value;
-    const distance = Number(inputDistance.value);
-    const duration = Number(inputDuration.value);
-    const lat= mapEvent.latlng.lat
-    const lng= mapEvent.latlng.lng
-    let workout;
-
-    if (type == 'running') {
-        const cadence = Number(inputCadence.value);
-
-
-        workout= new Running([lat,lng],distance,duration,cadence)
-    }
-
-    if (type == 'cycling') {
-        const elevation = +inputElevation.value;
-
-
-        workout= new Cycling([lat,lng],distance,duration,elevation)
-    }
-
-    workouts.push(workout)
-    console.log(workouts)
-
-    localStorage.setItem("workouts", JSON.stringify(workouts));
 
 document.getElementById("form").reset();
 })
