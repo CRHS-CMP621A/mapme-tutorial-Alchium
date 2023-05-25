@@ -163,7 +163,7 @@ for (let workout of workouts) {
     let lat = workout.coords[0];
     let lng = workout.coords[1];
 
-    if (workout.type === "running") {
+    if (workout.type === "Running") {
     html = `<li class="workout workout--running" data-id=${workout.id}>
 <h2 class="workout__title">${workout.description}</h2>
 <div class="workout__details">
@@ -202,7 +202,7 @@ L.marker([lat, lng])
 .setPopupContent('Workout')
 .openPopup();
 
-} else if (workout.type === "cycling") {
+} else if (workout.type === "Cycling") {
     html = `<li class="workout workout--cycling" data-id=${workout.id}>
 <h2 class="workout__title">${workout.description}</h2>
 <div class="workout__details">
