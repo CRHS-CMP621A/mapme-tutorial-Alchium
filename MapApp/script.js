@@ -90,6 +90,13 @@ navigator.geolocation.getCurrentPosition(
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         }).addTo(map);
 
+        const data = JSON.parse(localStorage.getItem("workout"));
+
+        if (data) {
+            workouts = data;
+            console.log(data);
+        }
+
         // L.marker(coords).addTo(map)
         //     .bindPopup('A pretty CSS popup.<br> Easily customizable.')
         //     .openPopup();
