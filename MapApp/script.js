@@ -159,8 +159,11 @@ form.addEventListener('submit', function (e) {
 
 
 let html;
+for (let workout of workouts) {
+    let lat = workout.coords[0];
+    let lng = workout.coords[1];
 
-if (type === "running") {
+    if (workout.type === "running") {
     html = `<li class="workout workout--running" data-id=${workout.id}>
 <h2 class="workout__title">${workout.description}</h2>
 <div class="workout__details">
@@ -184,9 +187,22 @@ if (type === "running") {
   <span class="workout__unit">spm</span>
 </div>
 </li>`;
-}
 
-if (type === "cycling") {
+L.marker([lat, lng])
+    .addTo(map)
+    .bindPopup(
+    L.popup({
+        maxWidth:250,
+        minWidth:100,
+        autoClose:false,
+        closeOnClick:false,
+        className:'running-popup',
+    })
+)
+.setPopupContent('Workout')
+.openPopup();
+
+} else if (workout.type === "cycling") {
     html = `<li class="workout workout--cycling" data-id=${workout.id}>
 <h2 class="workout__title">${workout.description}</h2>
 <div class="workout__details">
@@ -210,10 +226,24 @@ if (type === "cycling") {
   <span class="workout__unit">m</span>
 </div>
 </li>`;
+
+L.marker([lat, lng])
+    .addTo(map)
+    .bindPopup(
+    L.popup({
+        maxWidth:250,
+        minWidth:100,
+        autoClose:false,
+        closeOnClick:false,
+        className:'cycling-popup',
+    })
+)
+.setPopupContent('Workout')
+.openPopup();
 }
-
+console.log(html);
 form.insertAdjacentHTML("afterend",html);
-
+}
 
 document.getElementById("form").reset();
 })
