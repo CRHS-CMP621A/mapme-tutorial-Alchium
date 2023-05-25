@@ -135,7 +135,7 @@ form.addEventListener('submit', function (e) {
     workouts.push(workout)
     console.log(workouts)
 
-
+    localStorage.setItem("workouts", JSON.stringify(workouts));
 
     L.marker([lat, lng]).addTo(map)
                     .bindPopup(L.popup({
