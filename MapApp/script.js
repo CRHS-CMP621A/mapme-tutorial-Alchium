@@ -138,7 +138,7 @@ L.marker([lat, lng])
         className:'running-popup',
     })
 )
-.setPopupContent('Workout')
+.setPopupContent(workout.description)
 .openPopup();
 
 } else if (workout.type === "Cycling") {
