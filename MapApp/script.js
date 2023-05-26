@@ -314,11 +314,11 @@ inputType.addEventListener('change', function(){
  })
  
  containerWorkouts.addEventListener("click", function(e) {
-    const workoutE1 = e.target.closest(".workout");
+    const workoutEl = e.target.closest(".workout");
 
-    if (!workoutE1) return;
+    if (!workoutEl) return;
 
-    const workout = workouts.find((work) => work.id === workoutE1.dataset.id);
+    const workout = workouts.find((work) => work.id === workoutEl.dataset.id);
 
     map.setView(workout.coords, 13, {
         animate: true, 
