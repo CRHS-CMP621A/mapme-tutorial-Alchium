@@ -177,7 +177,7 @@ L.marker([lat, lng])
         className:'cycling-popup',
     })
 )
-.setPopupContent('Workout')
+.setPopupContent(workout.description)
 .openPopup();
 }
 console.log(html);
