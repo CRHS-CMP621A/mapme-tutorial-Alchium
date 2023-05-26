@@ -144,12 +144,23 @@ form.addEventListener('submit', function (e) {
 
     localStorage.setItem("workouts", JSON.stringify(workouts));
 
-let html;
-for (let workout of workouts) {
-    let lat = workout.coords[0];
-    let lng = workout.coords[1];
+    L.marker([lat, lng]).addTo(map)
+                    .bindPopup(L.popup({
+                        maxWidth:250,
+                        minWidth:100,
+                        autoClose:false,
+                        closeOnClick:false,
+                        className:'running-popup',
+                    }))
+                    .setPopupContent('Workout')
+                    .openPopup();
 
-    if (workout.type === "Running") {
+
+
+
+let html;
+
+if (type === "running") {
     html = `<li class="workout workout--running" data-id=${workout.id}>
 <h2 class="workout__title">${workout.description}</h2>
 <div class="workout__details">
@@ -173,22 +184,9 @@ for (let workout of workouts) {
   <span class="workout__unit">spm</span>
 </div>
 </li>`;
+}
 
-L.marker([lat, lng])
-    .addTo(map)
-    .bindPopup(
-    L.popup({
-        maxWidth:250,
-        minWidth:100,
-        autoClose:false,
-        closeOnClick:false,
-        className:'running-popup',
-    })
-)
-.setPopupContent('Workout')
-.openPopup();
-
-} else if (workout.type === "Cycling") {
+if (type === "cycling") {
     html = `<li class="workout workout--cycling" data-id=${workout.id}>
 <h2 class="workout__title">${workout.description}</h2>
 <div class="workout__details">
@@ -212,24 +210,10 @@ L.marker([lat, lng])
   <span class="workout__unit">m</span>
 </div>
 </li>`;
+}
 
-L.marker([lat, lng])
-    .addTo(map)
-    .bindPopup(
-    L.popup({
-        maxWidth:250,
-        minWidth:100,
-        autoClose:false,
-        closeOnClick:false,
-        className:'cycling-popup',
-    })
-)
-.setPopupContent('Workout')
-.openPopup();
-}
-console.log(html);
 form.insertAdjacentHTML("afterend",html);
-}
+
 
 document.getElementById("form").reset();
 })
