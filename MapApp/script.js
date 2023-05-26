@@ -90,7 +90,7 @@ navigator.geolocation.getCurrentPosition(
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         }).addTo(map);
 
-        const data = JSON.parse(localStorage.getItem("workout"));
+        const data = JSON.parse(localStorage.getItem("workouts"));
 
         if (data) {
             workouts = data;
