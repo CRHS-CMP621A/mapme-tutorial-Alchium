@@ -95,7 +95,7 @@ navigator.geolocation.getCurrentPosition(
         if (data) {
             workouts = data;
             console.log(data);
-        }
+        
 
         let html;
 for (let workout of workouts) {
@@ -182,6 +182,7 @@ L.marker([lat, lng])
 }
 console.log(html);
 form.insertAdjacentHTML("afterend",html);
+}
 }
 
         // L.marker(coords).addTo(map)
