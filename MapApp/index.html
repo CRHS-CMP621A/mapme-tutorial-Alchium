@@ -11,9 +11,12 @@
       rel="stylesheet"
     />
 
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin="" />
+    <script defer src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js" integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
+
     <link rel="stylesheet" href="style.css" />
 
-    <script src="script.js"></script>
+    <script defer src="script.js"></script>
     <title>MapMe // Map your workouts</title>
   </head>
   <body>
@@ -21,7 +24,7 @@
       <img src="logo.png" alt="Logo" class="logo" />
 
       <ul class="workouts">
-        <form class="form hidden">
+        <form id="form" class="form hidden">
           <div class="form__row">
             <label class="form__label">Type</label>
             <select class="form__input form__input--type">
@@ -31,7 +34,10 @@
           </div>
           <div class="form__row">
             <label class="form__label">Distance</label>
-            <input class="form__input form__input--distance" placeholder="km" />
+            <input 
+            class="form__input form__input--distance" 
+            placeholder="km" 
+            />
           </div>
           <div class="form__row">
             <label class="form__label">Duration</label>
